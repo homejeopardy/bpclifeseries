@@ -1,0 +1,11 @@
+name: LimitedLife
+version: 1.3
+main: com.example.limitedlife.LimitedLife
+api-version: '1.21'
+commands:
+  life:
+    description: Limited Life controls
+    usage: /life <check|start|pause|add|remove|set|reset|resetall|list|status|reload|boogeyman> ...
+permissions:
+  life.admin:
+    default: op

@@ -1,0 +1,67 @@
+# ================= LIMITED LIFE CONFIG =================
+# After editing, run /life reload (no restart needed).
+
+# ---------- Time ----------
+start-hours: 6             # time each new player starts with (decimals ok, e.g. 5.5)
+max-time-hours: 0          # cap on total time from gains (kills, /life add, cure bonus). 0 = no cap
+
+# ---------- Recipes (applied on server START; restart to change) ----------
+recipes:
+  remove-enchanting-table: true   # removes the enchanting table crafting recipe
+  life-series-tnt: true           # adds the Life Series TNT recipe: 4 sand + 4 paper + 1 gunpowder (any arrangement)
+  keep-vanilla-tnt: true          # keep the normal TNT recipe too (the Life Series does)
+
+# ---------- Name colors ----------
+# Color is based on hours remaining. Below yellow-min-hours = red.
+tiers:
+  dark-green-min-hours: 6
+  green-min-hours: 4
+  yellow-min-hours: 2
+
+# ---------- Deaths ----------
+death:
+  penalty-minutes: 30            # time lost on a death
+  pvp-only: false                # true = only deaths caused by another player cost time
+  pvp-extra-penalty-minutes: 0   # extra time lost when killed by a player (on top of the above)
+
+# ---------- Kills ----------
+kill:
+  reward-minutes: 15             # time the killer gains for killing a player (0 to disable)
+  reward-if-victim-red: true     # killer still gains time when the victim is red
+  reward-if-killer-red: true     # a red killer can still gain time
+
+# ---------- Boogeyman ----------
+boogeyman:
+  count: 1                       # how many Boogeymen /life boogeyman roll picks
+  countdown-seconds: 10          # suspense countdown before the reveal
+  fail-time-hours: 1.5           # failed Boogeyman is dropped to this if they have more (keep below yellow-min-hours so they turn red)
+  cure-bonus-minutes: 0          # extra time for a Boogeyman who gets cured (0 = none)
+  action-bar-hint: true          # show "Boogeyman: kill a player!" in their action bar
+  announce-failures: true        # publicly announce who failed
+
+# ---------- Elimination (0 time left) ----------
+elimination:
+  gamemode: SPECTATOR            # SPECTATOR, ADVENTURE, SURVIVAL or CREATIVE
+  broadcast: true
+  lightning: true
+  sound: true
+
+# ---------- Display ----------
+display:
+  name-colors: true              # colored names (above head, chat, tab)
+  tab-list: true                 # show time next to name in the tab list
+  action-bar: true               # show time left in the action bar
+
+# ---------- Low-time warnings ----------
+warnings:
+  enabled: true
+  minutes: [30, 10, 5, 1]        # warn the player at these minutes remaining
+
+# ---------- Messages (& color codes, {player} {minutes} {time} placeholders) ----------
+messages:
+  started: "&6Limited Life has begun! Timers are ticking."
+  paused: "&6Limited Life is paused."
+  eliminated: "&4{player} has run out of time!"
+  time-lost: "&cYou lost {minutes} minutes."
+  time-gained: "&6You gained {minutes} minutes for the kill."
+  warning: "&eYou only have {time} left!"
